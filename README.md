@@ -20,7 +20,7 @@ git clone https://github.com/guitorres/wttd.git wttd
 cd wttd
 python -m venv .wttd
 source .wttd/bin/activate
-pip install -r requeriments.txt
+pip install -r requeriments-dev.txt
 cp contrib/env-sample .env
 python manage.py test
 ```
