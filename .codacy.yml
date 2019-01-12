@@ -1,4 +1,5 @@
 exclude_paths:
-  - '*.js'
-  - '*.md'
+  - '**.js'
+  - '**.md'
+  - '**.css'
   - 'manage.py'
