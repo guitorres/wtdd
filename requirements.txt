@@ -9,3 +9,4 @@ wincertstore==0.2
 gunicorn==19.8.1
 psycopg2==2.7.4
 django-extensions==2.1.4
+django-test-without==0.6
