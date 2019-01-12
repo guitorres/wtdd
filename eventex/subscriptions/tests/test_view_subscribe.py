@@ -10,7 +10,7 @@ class SubscribeGet(TestCase):
 
 
     def test_get(self):
-        """Get /inscricao/ must return status code 200"""       
+        """Get /inscricao/ must return status code 200"""
         self.assertEqual(200, self.resp.status_code)
 
 
@@ -18,7 +18,7 @@ class SubscribeGet(TestCase):
         """Must use subscriptions/subscription_form.html"""
         self.assertTemplateUsed(self.resp, 'subscriptions/subscription_form.html')
 
-    
+
     def test_html(self):
         """Html must contains input tags"""
         tags = (('<form', 1),
@@ -31,7 +31,7 @@ class SubscribeGet(TestCase):
         for text, count in tags:
             with self.subTest():
                 self.assertContains(self.resp, text, count)
-    
+
     def test_csrf(self):
         """Html must contains csrf"""
         self.assertContains(self.resp, 'csrfmiddlewaretoken')
@@ -74,7 +74,7 @@ class SubscribePostInvalid(TestCase):
 
 
     def test_post(self):
-        """Invalid POST should not redirect"""        
+        """Invalid POST should not redirect"""
         self.assertEqual(200, self.resp.status_code)
 
 
@@ -103,7 +103,7 @@ class SubscribeSuccessMessage(TestCase):
         data = dict(name='Henrique Bastos', cpf='12345678901',
         email='henrique@bastos.net', phone='21-99618-6180')
         self.resp = self.client.post('/inscricao/', data, follow=True)
-    
-    
+
+
     def test_message(self):
         self.assertContains(self.resp ,'Inscrição realizada com sucesso')
