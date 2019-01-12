@@ -1,13 +1,11 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/34959b2bd964423ca96c4c6527bd193c)](https://app.codacy.com/app/guitorres/wttd?utm_source=github.com&utm_medium=referral&utm_content=guitorres/wttd&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/guitorres/wttd.svg?branch=master)](https://travis-ci.org/guitorres/wttd)
 
-
-
 # Eventex
 
 Sistema de Eventos encomendado pela Morena.
 
-## Como desenvolver?
+## Como desenvolver
 
 1. Clone o repositório
 2. Crie um virtualenv com Python 3.6
@@ -26,7 +24,7 @@ cp contrib/env-sample .env
 python manage.py test
 ```
 
-## Como fazer o deploy?
+## Como fazer o deploy
 
 1. Crie uma instância no heroku.
 2. Envie as configurações para o heroku.
