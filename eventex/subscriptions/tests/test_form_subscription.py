@@ -1,6 +1,8 @@
 from eventex.subscriptions.forms import SubscriptionForm
 from django.test import TestCase
-class SubscriptionForm(TestCase):
+
+
+class SubscriptionFormTest(TestCase):
     def setUp(self):
         self.form = SubscriptionForm()
 

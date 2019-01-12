@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 		updateURL: false, // Boolean. Whether or not to update the URL with the anchor hash on scroll
 		callbackBefore: function ( toggle, anchor ) {}, // Function to run before scrolling
 		callbackAfter: function ( toggle, anchor ) {} // Function to run after scrolling
-	 });
+	});
 
 	//FIX HOVER EFFECT ON IOS DEVICES
 	document.addEventListener("touchstart", function(){}, true);
