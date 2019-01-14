@@ -21,7 +21,7 @@ class SubscriptionDetailGet(TestCase):
     def test_context(self):
         subscription = self.resp.context['subscription']
         self.assertIsInstance(subscription, Subscription)
-    
+
     def test_html(self):
         contains = (
             self.obj.name,
@@ -30,7 +30,7 @@ class SubscriptionDetailGet(TestCase):
             self.obj.phone
         )
         with self.subTest():
-            for expected in contains:            
+            for expected in contains:
                 self.assertContains(self.resp, expected)
 
 class SubscriptionDetailNotFound(TestCase):

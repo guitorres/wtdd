@@ -3,7 +3,6 @@ from eventex.subscriptions.forms import SubscriptionForm
 from django.http import HttpResponseRedirect
 from django.core import mail
 from django.template.loader import render_to_string
-from django.contrib import messages
 from django.conf import settings
 from eventex.subscriptions.models import Subscription
 from django.http import Http404
