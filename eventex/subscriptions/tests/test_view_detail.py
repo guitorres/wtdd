@@ -10,7 +10,7 @@ class SubscriptionDetailGet(TestCase):
             phone = '21-996186180'
 
         )
-        self.resp = self.client.get('/inscricao/{}/'.format(self.obj.pk))
+        self.resp = self.client.get('/inscricao/{}/'.format(self.obj._hash))
 
     def test_get(self):
         self.assertEqual(200, self.resp.status_code)

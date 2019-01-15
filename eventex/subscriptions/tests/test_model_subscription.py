@@ -24,3 +24,7 @@ class SubscriptionModelTest(TestCase):
 
     def test_str(self):
         self.assertEqual('Henrique Bastos', str(self.obj))
+
+
+    def test_has_hash(self):
+        self.assertEqual(32, len(self.obj._hash))
