@@ -28,3 +28,8 @@ class SubscriptionModelTest(TestCase):
 
     def test_has_hash(self):
         self.assertEqual(32, len(self.obj._hash))
+
+
+    def test_paid_default_to_false(self):
+        """paid must have a default value False."""
+        self.assertFalse(self.obj.paid)
