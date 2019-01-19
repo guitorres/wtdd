@@ -6,12 +6,6 @@ from eventex.subscriptions.admin import SubscriptionModelAdmin, Subscription, ad
 class SubscriptionModelAdminTest(TestCase):
     def setUp(self):
         self.model_admin = SubscriptionModelAdmin(Subscription, admin.site)
-        Subscription.objects.create(name='Henrique Bastos', cpf='12345678901',
-                                    email='henrique@bastos.net', phone='21-996186180')
-        self.queryset = Subscription.objects.all()
-        self.mock = Mock()
-        self.old_message_user = SubscriptionModelAdmin.message_user
-        SubscriptionModelAdmin.message_user = self.mock
 
 
     def test_has_action(self):
@@ -21,13 +15,22 @@ class SubscriptionModelAdminTest(TestCase):
 
     def test_mark_all(self):
         """It should mark all selected subscriptions as paid."""
-        self.model_admin.mark_as_paid(None, self.queryset)
+        self.mark_as_paid()
         self.assertEqual(1, Subscription.objects.filter(paid=True).count())
-        SubscriptionModelAdmin.message_user = self.old_message_user
 
 
     def test_message(self):
         """It should send a message to the user."""
-        self.model_admin.mark_as_paid(None, self.queryset)
+        self.mark_as_paid()
         self.mock.assert_called_once_with(None, '1 inscrição foi marcada como paga.')
+
+
+    def mark_as_paid(self):
+        Subscription.objects.create(name='Henrique Bastos', cpf='12345678901',
+                                    email='henrique@bastos.net', phone='21-996186180')
+        self.queryset = Subscription.objects.all()
+        self.mock = Mock()
+        self.old_message_user = SubscriptionModelAdmin.message_user
+        SubscriptionModelAdmin.message_user = self.mock
+        self.model_admin.mark_as_paid(None, self.queryset)
         SubscriptionModelAdmin.message_user = self.old_message_user
