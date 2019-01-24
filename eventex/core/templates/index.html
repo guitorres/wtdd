@@ -35,24 +35,7 @@
 	<body>
 
         <div class="header-frame header-frame-absolute  row">
-            <header class="header header-inline min-h-3 row desktop-12 container" role="banner">
-
-                <div class="site-logo">
-                    <h1><a href="{% url 'home' %}" rel="home">Eventex</a></h1>
-                    <p class="site-description screen-reader-only">O maior encontro hacker do mundo!</p>
-                </div>
-
-                <nav class="nav-inline" role="navigation">
-                    <a href="javascript:void(0);" class="nav-mobile"><i class="fa fa-bars"></i></a>
-                    <ul>
-                        <li><a data-scroll href="#overview">Conferência</a></li>
-                        <li><a data-scroll href="#sponsors">Patrocinadores</a></li>
-                        <li><a data-scroll href="#register">Inscrição</a></li>
-                        <li><a data-scroll href="#venue">Local</a></li>
-                    </ul>
-                </nav>
-
-            </header>
+            {% include 'nav.html' only %}
         </div>
 
       	<!-- TOP -->
@@ -73,6 +56,19 @@
             </div>
         </section>
 
+        <!-- SPEAKERS -->
+        <section id="speakers">
+            <div class="speakers text-align-center row desktop-8 padding-bottom-2 container">
+                <h2>Palestrantes Convidados</h2>
+                {% for speaker in speakers %}
+                <div class="desktop-4">
+                    <img src="{{ speaker.photo }}"/>
+                    <h4>{{ speaker.name }}</h4>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
         <!-- SPONSORS -->
         <section id="sponsors">
         	<div class="sponsors text-align-center row desktop-12 min-h-28 padding-bottom-2 container">
@@ -81,20 +77,20 @@
 
                 <h3>Gold</h3>
                 <div class="sponsor-slider min-h-6">
-                    <img class="img-responsive" src="img/sponsor-gold-01.png" alt="logo">
-                    <img class="img-responsive" src="img/sponsor-gold-02.png" alt="logo">
-                    <img class="img-responsive" src="img/sponsor-gold-03.png" alt="logo">
+                    <img class="img-responsive" src="{% static 'img/sponsor-gold-01.png' %}" alt="logo">
+                    <img class="img-responsive" src="{% static 'img/sponsor-gold-02.png' %}" alt="logo">
+                    <img class="img-responsive" src="{% static 'img/sponsor-gold-03.png' %}" alt="logo">
 
                 </div>
 
                 <h3>Silver</h3>
                 <div class="sponsor-slider min-h-6 margin-bottom-1">
-                	<img class="img-responsive" src="img/sponsor-silver-01.png" alt="logo">
-                    <img class="img-responsive" src="img/sponsor-silver-02.png" alt="logo">
-                    <img class="img-responsive" src="img/sponsor-silver-03.png" alt="logo">
-                    <img class="img-responsive" src="img/sponsor-silver-04.png" alt="logo">
-                    <img class="img-responsive" src="img/sponsor-silver-05.png" alt="logo">
-                    <img class="img-responsive" src="img/sponsor-silver-06.png" alt="logo">
+                	<img class="img-responsive" src="{% static 'img/sponsor-silver-01.png' %}" alt="logo">
+                    <img class="img-responsive" src="{% static 'img/sponsor-silver-02.png' %}" alt="logo">
+                    <img class="img-responsive" src="{% static 'img/sponsor-silver-03.png' %}" alt="logo">
+                    <img class="img-responsive" src="{% static 'img/sponsor-silver-04.png' %}" alt="logo">
+                    <img class="img-responsive" src="{% static 'img/sponsor-silver-05.png' %}" alt="logo">
+                    <img class="img-responsive" src="{% static 'img/sponsor-silver-06.png' %}" alt="logo">
                 </div>
 
                 <h3>Seja um patrocinador</h3>
