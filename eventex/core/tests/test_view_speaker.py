@@ -10,7 +10,8 @@ class SpeakerDetailGet(TestCase):
             photo = "http://hbn.link/hopper-pic",
             slug = "grace-hopper",
             description = "Programadora e almirante.<br/>\
-                Inventora do compilador, criadora da linguagem de programacao Flow-Matic serviu de base para a linguagem COBOL permitindo a popularizacao das aplicaceies comerciais."
+                Inventora do compilador, criadora da linguagem de programacao Flow-Matic\
+                 serviu de base para a linguagem COBOL permitindo a popularizacao das aplicaceies comerciais."
         )
         self.resp = self.client.get(r('speaker_detail', slug='grace-hopper'))
 
@@ -46,3 +47,4 @@ class SpeakerDetailGet(TestCase):
 class SpeakerDetailNotFound(TestCase):
     def test_not_found(self):
         response = self.client.get(r('speaker_detail', slug='not-found'))
+        self.assertEqual(404, response.status_code)
