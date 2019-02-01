@@ -9,12 +9,12 @@ class Speaker(models.Model):
     website = models.URLField('website', blank=True)
     description = models.TextField('descrição', blank=True)
 
-    class Meta:
-        verbose_name = 'palestrante'
-        verbose_name_plural = 'palestrantes'
-
     def __str__(self):
         return self.name
 
-    def get_absolut_url(self):
+    def get_absolute_url(self):
         return r('speaker_detail', slug=self.slug)
+
+    class Meta:
+        verbose_name = 'palestrante'
+        verbose_name_plural = 'palestrantes'

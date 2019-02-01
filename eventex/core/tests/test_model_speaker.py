@@ -32,4 +32,4 @@ class SpeakerModelTest(TestCase):
 
     def test_get_absolut_url(self):
         url = r('speaker_detail', slug = self.speaker.slug)
-        self.assertEqual(url, self.speaker.get_absolut_url())
+        self.assertEqual(url, self.speaker.get_absolute_url())
