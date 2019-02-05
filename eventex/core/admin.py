@@ -6,11 +6,13 @@ class SpeakerModelAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name', )}
     list_display = ('name', 'photo_img', 'website_link')
 
+    @classmethod
     def website_link(self, obj):
         return format_html('<a href="{0}">{0}</a>', obj.website)
 
     website_link.short_description = 'website'
 
+    @classmethod
     def photo_img(self, obj):
         return format_html('<img width="32px" src="{}" />', obj.photo)
 
