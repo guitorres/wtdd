@@ -11,7 +11,7 @@ class ContactModelTest(TestCase):
         )
 
     def test_email(self):
-        contact = Contact.objects.create(
+        Contact.objects.create(
             speaker=self.speaker,
             kind=Contact.EMAIL,
             value='henrique@bastos.net'
@@ -21,7 +21,7 @@ class ContactModelTest(TestCase):
 
 
     def test_telefone(self):
-        contact = Contact.objects.create(
+        Contact.objects.create(
             speaker=self.speaker,
             kind=Contact.PHONE,
             value='21-996186180'
