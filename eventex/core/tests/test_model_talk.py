@@ -11,3 +11,24 @@ class TestModelTalk(TestCase):
 
     def test_create(self):
         self.assertTrue(Talk.objects.exists())
+
+    def test_has_speakers(self):
+        """Talk has many Speakers and vice-versa"""
+        self.talk.speakers.create(
+            name='Henrique Bastos',
+            slug='henrique-bastos',
+            website='htttp://henriquebastos.net'
+        )
+        self.assertEqual(1, self.talk.speakers.count())
+
+    def test_description_blank(self):
+        field = Talk._meta.get_field('description')
+        self.assertTrue(field.blank)
+
+    def test_speakers_blank(self):
+        field = Talk._meta.get_field('speakers')
+        self.assertTrue(field.blank)
+
+    def test_start_blank(self):
+        field = Talk._meta.get_field('start')
+        self.assertTrue(field.blank)
