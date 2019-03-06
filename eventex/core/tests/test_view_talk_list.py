@@ -47,3 +47,11 @@ class TestTalkList(TestCase):
         for key in variables:
             with self.subTest():
                 self.assertContains(key, self.resp.context)
+
+
+class TalkListGetEmpty(TestCase):
+    def test_get_empty(self):
+        response = self.client.get(r('talk_list'))
+
+        self.assertContains(response, 'Ainda não existem palestras de manhã.')
+        self.assertContains(response, 'Ainda não existem palestras de tarde.')

@@ -5,7 +5,7 @@ class TestModelTalk(TestCase):
     def setUp(self):
         self.talk = Talk.objects.create(
             title='Título da Palestra',
-            start='10:00',
+            #start='10:00',
             description='Descrição da palestra.',
         )
 
@@ -32,3 +32,6 @@ class TestModelTalk(TestCase):
     def test_start_blank(self):
         field = Talk._meta.get_field('start')
         self.assertTrue(field.blank)
+
+    def test_str(self):
+        self.assertEqual('Título da Palestra', str(self.talk))
